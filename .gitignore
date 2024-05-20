@@ -1,0 +1,5 @@
+# .gitignore
+mysql_data/*.cnf
+mysql_data/binlog.index
+mysql_data/ib_buffer_pool
+mysql_data/mysql.sock

@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  web-server:
+    image: "web-server"
+    container_name: "web-server"
+    build:
+      context: .
+      dockerfile: docker/phpapache/Dockerfile
+    ports:
+      - "8070:80"
+    volumes:
+      - ./public/:/var/www/html/
+
+  
+
+  sql-server:
+    image: "mysql:latest"
+    container_name: "mysql-server"
+    ports:
+      - "33060:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "webapp"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "admin"
+    volumes:
+      - ./mysql_data/:/var/lib/mysql/
